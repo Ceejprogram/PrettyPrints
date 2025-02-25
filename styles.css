@@ -1,0 +1,192 @@
+header {
+  position: fixed; /* Keeps it fixed at the top */
+  top: 0; /* Aligns to the top */
+  background-color: white; /* Solid background */
+  z-index: 1000; /* Stays above other content */
+  width: 100%; /* Matches the container’s width */
+  max-width: inherit; /* Inherits the container’s max-width */
+  left: 50%; /* Centers the header */
+  transform: translateX(-50%); /* Adjusts for centering */
+}
+
+/* Adjust body padding to prevent overlap */
+body {
+  padding-top: 100px; /* Matches header height */
+}
+
+/* Ensure the container doesn’t shift */
+.container {
+  position: relative; /* Keeps the container in flow */
+}
+
+.profile {
+  position: relative;
+  height: 25vw;
+  border-radius: 5vw;
+  margin-top: 5vw;
+}
+
+.profile .profile-image {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gradient-background {
+  background: linear-gradient(
+    102.2deg,
+    rgb(252, 40, 154) -9.9%,
+    rgb(224, 125, 154) 34.7%,
+    rgb(250, 165, 147) 89.1%
+  );
+  background-size: 180% 180%;
+}
+
+.gradient-background.fade-in-image {
+  animation: gradient-animation 5s ease infinite,
+    fadeIn 1s ease-in forwards 0.5s;
+}
+
+#typed-heading {
+  display: inline-block;
+  width: 390px; /* Fixed width to match text length */
+  height: 87px; /* Fixed height to reserve vertical space */
+  white-space: normal; /* Prevents text wrapping */
+  overflow: hidden; /* Hides any overflow during typing */
+  font-size: 2.5rem; /* Matches Bootstrap's display-5 size */
+  line-height: 1; /* Matches lh-1 from your original code */
+  font-weight: 700; /* Matches fw-bold */
+}
+
+#typed {
+  display: inline-block;
+  width: 390px; /* Fixed width for p text */
+  height: 30px; /* Fixed height for p */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.fade-in-text {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 0s;
+}
+
+.fade-in-image {
+  opacity: 0;
+}
+
+.fade-in-on-scroll {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+}
+
+.logos {
+  padding-left: 15px;
+}
+
+.nav {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.nav-link {
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+.btn {
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #212529;
+}
+
+.card:hover .card-header {
+  background-color: #212529; /* Dark header on hover */
+  color: white; /* White text for readability */
+}
+
+.col.d-flex.align-items-start > img,
+.col.d-flex.align-items-start > svg {
+  transition: transform 0.3s ease;
+}
+
+.col.d-flex.align-items-start:hover > img,
+.col.d-flex.align-items-start:hover > svg {
+  transform: scale(1.2);
+}
+
+.fade-in-on-scroll {
+  will-change: opacity;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 0.25rem 0.5rem; /* Reduced padding on mobile */
+    font-size: 0.8rem; /* Smaller font size on mobile */
+  }
+
+  /* Optional: you can also adjust the container to use the full width */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* If you still need more space, you can use smaller icons instead of text */
+  /* .nav-item span.mobile-text {
+    display: none;
+  } */
+}
+
+/* Even smaller screens might need more aggressive adjustments */
+@media (max-width: 480px) {
+  .nav-link {
+    padding: 0.15rem 0.3rem; /* Even smaller padding */
+    font-size: 0.7rem; /* Even smaller font size */
+  }
+}
